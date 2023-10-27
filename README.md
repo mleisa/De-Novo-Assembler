@@ -117,10 +117,10 @@ Es sind Ihnen zudem die folgenden drei Mutationen bekannt, die Resistenzen vermi
 Mappen Sie die Read-Sequenzen der 4 Personen ([data/patient1.fasta](data/patient1.fasta) - [data/patient4.fasta](data/patient4.fasta)) auf die rpoB-Referenz ([data/rpoB.fasta](data/rpoB.fasta)) und tragen Sie hier ein, welche Mutation(en) Sie identifizieren konnten und welches Antibiotikum Sie empfehlen würden:
 
 ```text
-Person 1 - Mutation(en): -, Empfehlung: Daptomycin
-Person 2 - Mutation(en): -, Empfehlung: Daptomycin
-Person 3 - Mutation(en): C1402A, Empfehlung: Daptomycin
-Person 4 - Mutation(en): T2858G, Empfehlung: Rifampicin 
+Person 1 - Mutation(s): -, Recommendation: Daptomycin
+Person 2 - Mutation(s): -, Recommendation: Daptomycin
+Person 3 - Mutation(s): C1402A, Recommendation: Daptomycin
+Person 4 - Mutation(s): T2858G, Recommendation: Rifampicin 
 ```
 
 Lassen Sie sich bitte von Unterschieden zur Referenzsequenz, die nur in einzelnen Reads vorkommen, nicht verwirren - das ist ein realistischer Datensatz und die Reads enthalten Sequenzierfehler.
@@ -176,35 +176,35 @@ Tragen Sie hier ein, welche Mutation(en) Sie identifizieren konnten und welches 
 
 ```text
 kmer_len=15, cutoff=3
-Person 1 - Mutation(en): -, Empfehlung: Daptomycin
-Person 2 - Mutation(en): C1862A, Empfehlung: Rifampicin
-Person 3 - Mutation(en): C1402A, Empfehlung: Daptomycin
-Person 4 - Mutation(en): -, Empfehlung: Daptomycin
+Person 1 - Mutation(s): -, Recommendation: Daptomycin
+Person 2 - Mutation(s): C1862A, Recommendation: Rifampicin
+Person 3 - Mutation(s): C1402A, Recommendation: Daptomycin
+Person 4 - Mutation(s): -, Recommendation: Daptomycin
 ```
 
 ```text
 kmer_len=17, cutoff=3
-Person 1 - Mutation(en): -, Empfehlung: Daptomycin
-Person 2 - Mutation(en): C1862A, Empfehlung: Rifampicin
-Person 3 - Mutation(en): C1402A, Empfehlung: Daptomycin
-Person 4 - Mutation(en): -, Empfehlung: Daptomycin
+Person 1 - Mutation(s): -, Recommendation: Daptomycin
+Person 2 - Mutation(s): C1862A, Recommendation: Rifampicin
+Person 3 - Mutation(s): C1402A, Recommendation: Daptomycin
+Person 4 - Mutation(s): -, Recommendation: Daptomycin
 ```
 
 ```text
 kmer_len=12, cutoff=2
-Person 1 - Mutation(en): -, Empfehlung: Daptomycin
-Person 2 - Mutation(en): C1862A, Empfehlung: Rifampicin
-Person 3 - Mutation(en): C1402A, Empfehlung: Daptomycin
-Person 4 - Mutation(en): -, Empfehlung: Daptomycin
+Person 1 - Mutation(s): -, Recommendation: Daptomycin
+Person 2 - Mutation(s): C1862A, Recommendation: Rifampicin
+Person 3 - Mutation(s): C1402A, Recommendation: Daptomycin
+Person 4 - Mutation(s): -, Recommendation: Daptomycin
 ```
 
 
 Sehen Sie einen Unterschied in den Empfehlungen zu denen, die Sie ohne Fehlerkorrektur gegeben haben? Beschreiben Sie kurz, was der Unterschied ist, und wie dieser durch die Fehlerkorrektur zustande gekommen ist (kein Roman, 5-6 Sätze reichen aus):
 
 ```text
-Es können sich Unterschiede in den Ergebnissen feststellen lassen, z. B. ist nach Fehlerkorrektur eine Resistenz in Patient 2 gefunden worden, die vorher nicht bemerkt wurde.
-Zudem konnte nach der Fehlerkorrektur keine Resistenz mehr in Patient 4 festgestellt werden.
-Das Anpassen der kmer-Länge und des cutoffs haben Einfluss auf die gemappten Reads, z. B. wird bei Patient 4 mit einer kleineren kmer-Länge gar nicht mehr bis Position 2858 gemappt (wo die Mutation war).
-Die Fehlerkorrektur hat darauf insofern Einfluss, dass selten vorkommende kmere mit einem Schwellenwert als Referenz automatisch als fehlerhafter Read eingestuft werden können.
-Mithilfe anderer Reads und deren kmere kann ermittelt werden, welcher (öfter vorkommender) kmere an dieser Stelle wahrscheinlicher ist.
+Differences in the results may be observed, e.g. resistance was found in patient 2 after error correction, which was not noticed before.
+In addition, after error correction, resistance could no longer be detected in patient 4.
+Adjusting the kmer length and the cutoff have an influence on the mapped reads, e.g., in patient 4 with a smaller kmer length it was no longer mapped to position 2858 (where the mutation was).
+Error correction affects because rarely occurring kmers with a threshold as a reference can automatically be classified as an false read.
+With the help of other reads and their kmers, it can be determined which (more frequently occurring) kmer is more likely at this position.
 ```
